@@ -20,7 +20,7 @@
 
 class Libro{
 
-	constructor(titulo, autor, anio, genero){
+	constructor(titulo, autor, año, genero){
         this.titulo = titulo
         this.autor = autor
         this.año = año
@@ -41,54 +41,40 @@ class Libro{
 
 }
 
-function mostrarLibros( libros ){
 
-    for( libro of libros ){
-        console.log( libro.titulo )
-    }
-
-}
-
-
-function mostrarAutoresAlfabeticamente( libros ){
-
-    // Ordenar los libros por autor
-    let autores = libros.sort( (a, b) => a.autor.localeCompare(b.autor) )
-
-    // Mostrar los autores
-    for( index of autores ){
-        console.log( index.autor )
-    }
+const mostrarLibros = () => {
+    
+    libros.map( libro => console.log( libro.informacionTotalLibro() ) )
 
 }
 
-function mostrarGeneroAlfabeticamente( libros, genero ){
+const mostrarAutoresAlfabeticamente = () => {
 
+    let autoresAlfabeticamente = libros.map( libro => libro.autor )
+    autoresAlfabeticamente.sort()
+    console.log( autoresAlfabeticamente )
+
+}
+
+const mostrarGeneroAlfabeticamente = () => {
+
+    let generosAlfabeticamente = libros.map( libro => libro.genero )
+    generosAlfabeticamente.sort()
+    console.log( generosAlfabeticamente )
+
+}
+
+const mostrarLibroPorGenero = () => {
+  
     // Filtrar los libros por genero
     let generoSolicitado = prompt('Ingrese el genero que desea buscar')
     
-    // Filtrar los libros por genero
-    let librosFiltrados = libro.filter( libro => libro.genero == generoSolicitado.toLocaleLowerCase() )
-
-    // Mostrar los libros
-    for( libro of librosFiltrados ){
-        console.log( libro.informacionLibroPorGenero() )
-    }
-
+    libros.map( libro => {
+        if( libro.genero.toLowerCase() == generoSolicitado.toLowerCase() ){
+            console.log( libro.informacionLibroPorGenero() )
+        }
+    })
 }
-
-function mostrarLibroPorGenero( libros, genero ){
-
-    // Filtrar los libros por genero
-    let librosFiltrados = libros.filter( libro => libro.genero == genero )
-
-    // Mostrar los libros
-    for( libro of librosFiltrados ){
-        console.log( libro.informacionTotalLibro() )
-    }
-
-}
-
 
 // Array vacio para guardar los libros
 const libros = []
@@ -97,6 +83,7 @@ const libros = []
 const generos = ['aventuras', 'terror', 'fantasia']
 
 // Ciclo para pedir los libros
+
 while( libros.legth < 3 ){
     console.log|('Ingresa los datos del libro')
     let titulo = prompt('Nombre del libro')     // Pedir el titulo
@@ -116,30 +103,4 @@ while( libros.legth < 3 ){
     
     }
 
-}
-
-let running = true
-
-while( !running ){
-    let opcion = prompt('Elige una opcion: \n 1. Mostrar todos los libros \n 2. Mostrar autores alfabeticamente \n 3. Mostrar libros por genero alfabeticamente \n 4) Mostrar libros filtrados por genero \n 0. Salir')
-
-    switch( opcion ){
-        case '1':
-            mostrarLibros( libros )
-            break
-        case '2':
-            mostrarAutoresAlfabeticamente( libros )
-            break
-        case '3':
-            mostrarGeneroAlfabeticamente( libros )
-            break
-        case '4':
-            mostrarLibroPorGenero( libros )
-            break
-        case '0':
-            running = false
-            break
-        default:
-            console.log('Opcion no valida')
-    }
 }
