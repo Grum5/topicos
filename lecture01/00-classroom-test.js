@@ -29,6 +29,9 @@ class Persona{
 
 }
 
+
+
+
 const personas = []
 
 while( personas.length < 1 ){
