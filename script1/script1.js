@@ -16,7 +16,7 @@ const availableColors = [
 
 
 // Ciclo para crear los 10 contenedores con colores aleatorios
-for (let i = 0; i < 10; i++){
+for (let _ = 0; _ < 10; i++){
 
     // Se crea el div
     const div = document.createElement('div')
@@ -26,7 +26,7 @@ for (let i = 0; i < 10; i++){
     div.style.height = '100px'
     div.style.margin = '10px'
     
-    // Se le asigna un color aleatorio (Se usa una funcion anonima) 
+    // Se le asigna un color aleatorio
     div.style.backgroundColor = availableColors[ Math.floor(Math.random() * 10) ]
 
     // Se agrega el div al body

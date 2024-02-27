@@ -22,34 +22,24 @@ function randomText(){
     let text = ''
 
     // Arreglo con palabras para armar el parrafo (79 palabras)
-    const words = [
-        "hola ", "llevamos ", "tanto ", "sin ", "vernos, ", "¿no? ",
-        "¿cómo ", "has ", "estado? ",
-        "espero ", "que ", "bien. ",
-        "hoy ", "es ", "un ", "día ", "muy ", "bonito. ",
-        "extraño ", "esos ", "dias ", "donde ", "nos ", "veiamos ", "seguido. ",
-        "como ", "esta ", "tu ", "familia? ",
-        "todo ", "en ", "excelentes ", "condiciones ",
-        "dios ", "mio ", "que ", "hermoso ", "outfit. ",
-        "me ", "encanta ", "tu ", "cabello. ",
-        "eres ", "una ", "persona ", "muy ", "especial. ",
-        "estoy ", "muy ", "emocionado ", "por ", "verte. ",
-        "me ", "he ", "endeudado ",
-        "no ", "tengo ", "dinero ",
-        "no ", "tengo ", "comida ",
-        "no ", "tengo ", "casa ",
-        "que ", "lastima ",
-        "que ", "triste ",
-        "que ", "emocionante ", "es ", "estar ", "aqui ",
-        "que ", "emocionante ", "es ", "estar ", "en ", "casa ",
+    const words = ["hola ", "llevamos ", "tanto ", "sin ", "vernos, ", "¿no? ","¿cómo ", "has ", "estado? ","espero ", "que ", "bien. ","hoy ", "es ", "un ", "día ", "muy ", "bonito. ","extraño ", "esos ", "dias ", "donde ", "nos ", "veiamos ", "seguido. ","como ", "esta ", "tu ", "familia? ","todo ", "en ", "excelentes ", "condiciones ","dios ", "mio ", "que ", "hermoso ", "outfit. ","me ", "encanta ", "tu ", "cabello. ","eres ", "una ", "persona ", "muy ", "especial. ","estoy ", "muy ", "emocionado ", "por ", "verte. ","me ", "he ", "endeudado ","no ", "tengo ", "dinero ","no ", "tengo ", "comida ","no ", "tengo ", "casa ","que ", "lastima ","que ", "triste ","que ", "emocionante ", "es ", "estar ", "aqui ","que ", "emocionante ", "es ", "estar ", "en ", "casa "
     ]
 
+    // Arreglo temporal para almacenar las palabras y poder contarlas
+    const tempText = []
 
     // Ciclo para generar el texto
-    for ( text.length; text.length < Math.floor(Math.random() * 50 + 50); text.length++){
+    while( tempText.length < Math.floor(Math.random() * 50 + 50) ){
+
+        // Se genera un indice aleatorio
+        let index = Math.floor(Math.random() * 79)
 
         // Se concatena una palabra aleatoria a la variable text
-        text += words[ Math.floor(Math.random() * words.length) ]
+        text += words[ index ]
+
+        // Se agrega la palabra al arreglo temporal
+        tempText.push(words[ index ])
+    
     }
 
     // Se retorna el texto generado
@@ -58,7 +48,7 @@ function randomText(){
 }
 
 // Ciclo para crear los 5 parrafos
-for (let i = 0; i < 5; i++){
+for (let _ = 0; _ < 5; i++){
 
     // Se crea el parrafo
     const p = document.createElement('p')

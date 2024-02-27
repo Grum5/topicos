@@ -24,9 +24,7 @@ const availableColors = [
 // Se declara un arreglo temporal para no modificar el original
 const tempColors = availableColors
 
-console.log(tempColors)
-
-for (let i = 0; i < 10; i++){
+for (let _ = 0; _ < 10; i++){
 
     // Se crea un indice aleatorio del 0 al 19
     let index = Math.floor(Math.floor(Math.random() * 20))
